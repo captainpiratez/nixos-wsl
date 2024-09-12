@@ -142,8 +142,8 @@ in {
         side-by-side = true;
         navigate = true;
       };
-      userEmail = "captainpiratez"; # set your git email
-      userName = "yigitkoldas4@gmail.com"; # set your git username
+      userEmail = "yigitkoldas4@gmail.com"; # set your git email
+      userName = "captainpiratez"; # set your git username
       extraConfig = {
         # uncomment the next lines if you want to be able to clone private https repos
         # url = {
