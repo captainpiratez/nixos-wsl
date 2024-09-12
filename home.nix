@@ -1,5 +1,5 @@
 {
-  # FIXME: uncomment the next line if you want to reference your GitHub/GitLab access tokens and other secrets
+  # uncomment the next line if you want to reference your GitHub/GitLab access tokens and other secrets
   # secrets,
   pkgs,
   username,
@@ -7,7 +7,7 @@
   ...
 }: let
   unstable-packages = with pkgs.unstable; [
-    # FIXME: select your core binaries that you always want on the bleeding-edge
+    # select your core binaries that you always want on the bleeding-edge
     bat
     bottom
     coreutils
@@ -31,12 +31,13 @@
     vim
     wget
     zip
+    tldr
   ];
 
   stable-packages = with pkgs; [
-    # FIXME: customize these stable packages to your liking for the languages that you use
+    # customize these stable packages to your liking for the languages that you use
 
-    # FIXME: you can add plugins, change keymaps etc using (jeezyvim.nixvimExtend {})
+    # you can add plugins, change keymaps etc using (jeezyvim.nixvimExtend {})
     # https://github.com/LGUG2Z/JeezyVim#extending
     jeezyvim
 
@@ -83,7 +84,7 @@ in {
     homeDirectory = "/home/${username}";
 
     sessionVariables.EDITOR = "nvim";
-    # FIXME: set your preferred $SHELL
+    # set your preferred $SHELL
     sessionVariables.SHELL = "/etc/profiles/per-user/${username}/bin/fish";
   };
 
@@ -91,7 +92,7 @@ in {
     stable-packages
     ++ unstable-packages
     ++
-    # FIXME: you can add anything else that doesn't fit into the above two lists in here
+    # you can add anything else that doesn't fit into the above two lists in here
     [
       # pkgs.some-package
       # pkgs.unstable.some-other-package
@@ -103,7 +104,7 @@ in {
     nix-index.enableFishIntegration = true;
     nix-index-database.comma.enable = true;
 
-    # FIXME: disable this if you don't want to use the starship prompt
+    # disable this if you don't want to use the starship prompt
     starship.enable = true;
     starship.settings = {
       aws.disabled = true;
@@ -119,7 +120,7 @@ in {
       hostname.style = "bold green";
     };
 
-    # FIXME: disable whatever you don't want
+    # disable whatever you don't want
     fzf.enable = true;
     fzf.enableFishIntegration = true;
     lsd.enable = true;
@@ -141,10 +142,10 @@ in {
         side-by-side = true;
         navigate = true;
       };
-      userEmail = ""; # FIXME: set your git email
-      userName = ""; #FIXME: set your git username
+      userEmail = "captainpiratez"; # set your git email
+      userName = "yigitkoldas4@gmail.com"; # set your git username
       extraConfig = {
-        # FIXME: uncomment the next lines if you want to be able to clone private https repos
+        # uncomment the next lines if you want to be able to clone private https repos
         # url = {
         #   "https://oauth2:${secrets.github_token}@github.com" = {
         #     insteadOf = "https://github.com";
@@ -166,10 +167,10 @@ in {
       };
     };
 
-    # FIXME: This is my fish config - you can fiddle with it if you want
+    # This is my fish config - you can fiddle with it if you want
     fish = {
       enable = true;
-      # FIXME: run 'scoop install win32yank' on Windows, then add this line with your Windows username to the bottom of interactiveShellInit
+      #  run 'scoop install win32yank' on Windows, then add this line with your Windows username to the bottom of interactiveShellInit
       # fish_add_path --append /mnt/c/Users/<Your Windows Username>/scoop/apps/win32yank/0.1.1
       interactiveShellInit = ''
         ${pkgs.any-nix-shell}/bin/any-nix-shell fish --info-right | source
@@ -183,6 +184,7 @@ in {
           + "/extras/kanagawa.fish")}
 
         set -U fish_greeting
+        fish_add_path --append /mnt/c/Users/ksk-y/scoop/apps/win32yank/0.1.1
       '';
       functions = {
         refresh = "source $HOME/.config/fish/config.fish";

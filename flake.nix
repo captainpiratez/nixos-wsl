@@ -27,7 +27,7 @@
         config = {
           allowUnfree = true;
           permittedInsecurePackages = [
-            # FIXME:: add any insecure packages you absolutely need here
+            # add any insecure packages you absolutely need here
           ];
         };
 
@@ -82,7 +82,7 @@
 
       nixosConfigurations.nixos = mkNixosConfiguration {
         hostname = "nixos";
-        username = "nixos"; # FIXME: replace with your own username!
+        username = "piratez";
         modules = [
           nixos-wsl.nixosModules.wsl
           ./wsl.nix
